@@ -1,9 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from bs4 import BeautifulSoup
 import requests
@@ -46,24 +43,19 @@ for page in range(1, total_pages + 1):
         pdf_links = soup.find_all('a', href=lambda href: href and '.pdf' in href)
 
         # 将当前页面的PDF链接添加到总列表中
-        all_pdf_links.extend(pdf_links)
+        all_pdf_links.extend([link['href'] for link in pdf_links])
 
         if page < total_pages:
-            # 找到页码输入框并输入页码
-            page_input = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, '.pagination-con input[type="text"]'))
-            )
-            page_input.clear()
-            page_input.send_keys(str(page + 1))
-
-            # 找到“跳转”按钮并点击
-            jump_button = WebDriverWait(driver, 20).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, '.pagination-con button'))
-            )
-            jump_button.click()
+            # 使用JavaScript进行分页跳转
+            driver.execute_script(f'document.querySelector("ul#jqPaginator li a[data-pi=\'{page}\']").click()')
 
             # 等待页面加载
-            time.sleep(10)
+            time.sleep(5)
+
+            # 打印当前页面的一部分源代码
+            new_page_source = driver.page_source
+            print(f"Page {page + 1} source sample: {new_page_source[:500]}")
+
     except (TimeoutException, NoSuchElementException) as e:
         print(f"Exception on page {page}: {e}")
         break
@@ -76,7 +68,7 @@ os.makedirs('pdf_files', exist_ok=True)
 
 # 下载所有 PDF 文件
 for link in all_pdf_links:
-    pdf_url = link['href']
+    pdf_url = link
     if not pdf_url.startswith('http'):
         pdf_url = 'https://www.szse.cn' + pdf_url
 

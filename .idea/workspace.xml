@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a116bda9-41f5-4dac-a211-c82aac52872f" name="更改" comment="第一次提交网页爬虫代码">
+    <list default="true" id="a116bda9-41f5-4dac-a211-c82aac52872f" name="更改" comment="第二次提交网页爬虫代码，使用selenium动态爬取成功，但是没有处理翻页，只能爬取47条，非常奇怪">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spider.py" afterDir="false" />
     </list>
@@ -131,13 +131,22 @@
       <option name="project" value="LOCAL" />
       <updated>1721564515027</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="第二次提交网页爬虫代码，使用selenium动态爬取成功，但是没有处理翻页，只能爬取47条，非常奇怪">
+      <option name="closed" value="true" />
+      <created>1721566329268</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721566329268</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first submit" />
     <MESSAGE value="提交我的代码" />
     <MESSAGE value="第一次提交网页爬虫代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一次提交网页爬虫代码" />
+    <MESSAGE value="第二次提交网页爬虫代码，使用selenium动态爬取成功，但是没有处理翻页，只能爬取47条，非常奇怪" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二次提交网页爬虫代码，使用selenium动态爬取成功，但是没有处理翻页，只能爬取47条，非常奇怪" />
   </component>
 </project>
