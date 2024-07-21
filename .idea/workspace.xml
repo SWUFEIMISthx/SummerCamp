@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a116bda9-41f5-4dac-a211-c82aac52872f" name="更改" comment="提交我的代码">
+    <list default="true" id="a116bda9-41f5-4dac-a211-c82aac52872f" name="更改" comment="第一次提交网页爬虫代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spider.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,12 +123,21 @@
       <option name="project" value="LOCAL" />
       <updated>1721464513240</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="第一次提交网页爬虫代码">
+      <option name="closed" value="true" />
+      <created>1721564515027</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721564515027</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first submit" />
     <MESSAGE value="提交我的代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交我的代码" />
+    <MESSAGE value="第一次提交网页爬虫代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次提交网页爬虫代码" />
   </component>
 </project>
