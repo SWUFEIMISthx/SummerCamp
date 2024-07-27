@@ -82,17 +82,33 @@ driver.quit()
 # 创建文件夹用于保存下载的 PDF 文件
 os.makedirs('pdf_files', exist_ok=True)
 
+# 获取已下载的PDF文件列表
+downloaded_files = set(os.listdir('pdf_files'))
+
 # 下载所有 PDF 文件
 for link in all_pdf_links:
     pdf_url = link
     if not pdf_url.startswith('http'):
         pdf_url = 'https://www.szse.cn' + pdf_url
 
-    pdf_name = os.path.join('pdf_files', os.path.basename(pdf_url))
-    pdf_response = requests.get(pdf_url)
-    if pdf_response.status_code == 200:
-        with open(pdf_name, 'wb') as pdf_file:
-            pdf_file.write(pdf_response.content)
-        print(f"Downloaded: {pdf_name}")
-    else:
-        print(f"Failed to download: {pdf_url}")
+    pdf_name = os.path.basename(pdf_url)
+
+    if pdf_name in downloaded_files:
+        print(f"Skipped: {pdf_name}")
+        continue
+
+    pdf_path = os.path.join('pdf_files', pdf_name)
+
+    for attempt in range(5):  # 最多重试5次
+        try:
+            pdf_response = requests.get(pdf_url, timeout=10)
+            if pdf_response.status_code == 200:
+                with open(pdf_path, 'wb') as pdf_file:
+                    pdf_file.write(pdf_response.content)
+                print(f"Downloaded: {pdf_path}")
+                break
+            else:
+                print(f"Failed to download: {pdf_url} with status code {pdf_response.status_code}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error downloading {pdf_url}: {e}")
+            time.sleep(5)  # 等待5秒后重试
