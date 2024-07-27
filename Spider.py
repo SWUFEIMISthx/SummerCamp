@@ -2,6 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import requests
 import os
@@ -25,6 +28,19 @@ driver.get(url)
 
 # 等待几秒钟以确保所有内容加载完毕
 time.sleep(5)
+
+# 选择"问询与回复"板块
+try:
+    inquiry_reply_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, 'li[data-type="4"]'))
+    )
+    inquiry_reply_button.click()
+    # 等待页面加载
+    time.sleep(5)
+except (TimeoutException, NoSuchElementException) as e:
+    print(f"Failed to select '问询与回复' section: {e}")
+    driver.quit()
+    exit()
 
 # 获取总页数
 total_pages = 537  # 根据你的截图中的页码数
