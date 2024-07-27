@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a116bda9-41f5-4dac-a211-c82aac52872f" name="更改" comment="第四次提交网页爬虫代码，已成功，最终版">
-      <change afterPath="$PROJECT_DIR$/SpiderForSH.py" afterDir="false" />
+    <list default="true" id="a116bda9-41f5-4dac-a211-c82aac52872f" name="更改" comment="第五次提交网页爬虫代码，已成功，最终版【修改，加入了断点重调机制，上交所代码待测试】">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpiderForSZ.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpiderForSZ.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpiderForSZ.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +32,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Spider.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Spider.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.SpiderForSZ">
     <configuration name="SpiderForSZ" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="myProject" />
@@ -156,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722069900216</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="第五次提交网页爬虫代码，已成功，最终版【修改，加入了断点重调机制，上交所代码待测试】">
+      <option name="closed" value="true" />
+      <created>1722075973385</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722075973385</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -166,6 +173,7 @@
     <MESSAGE value="第二次提交网页爬虫代码，使用selenium动态爬取成功，但是没有处理翻页，只能爬取47条，非常奇怪" />
     <MESSAGE value="第三次提交网页爬虫代码，已成功，最终版" />
     <MESSAGE value="第四次提交网页爬虫代码，已成功，最终版" />
-    <option name="LAST_COMMIT_MESSAGE" value="第四次提交网页爬虫代码，已成功，最终版" />
+    <MESSAGE value="第五次提交网页爬虫代码，已成功，最终版【修改，加入了断点重调机制，上交所代码待测试】" />
+    <option name="LAST_COMMIT_MESSAGE" value="第五次提交网页爬虫代码，已成功，最终版【修改，加入了断点重调机制，上交所代码待测试】" />
   </component>
 </project>

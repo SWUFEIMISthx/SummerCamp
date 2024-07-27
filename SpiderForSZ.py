@@ -112,3 +112,5 @@ for link in all_pdf_links:
         except requests.exceptions.RequestException as e:
             print(f"Error downloading {pdf_url}: {e}")
             time.sleep(5)  # 等待5秒后重试
+
+
