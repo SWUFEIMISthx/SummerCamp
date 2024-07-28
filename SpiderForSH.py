@@ -29,19 +29,35 @@ driver.get(url)
 # 等待几秒钟以确保所有内容加载完毕
 time.sleep(5)
 
+# 调试信息：打印页面源代码
+print(driver.page_source)
+
 # 选择问询与回复板块
 try:
-    inquiry_response_tab = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, 'li[data-ver="I3010"]'))
+    disclosure_type = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "DisclosureType"))
     )
+    print("Disclosure type found")
+
+    # 尝试使用不同的选择器来选择“问询与回复”标签
+    inquiry_response_tab = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, '//li[text()="问询与回复"]'))
+    )
+    print("Inquiry and response tab found")
+    driver.execute_script("arguments[0].scrollIntoView(true);", inquiry_response_tab)
     inquiry_response_tab.click()
+
+    # 等待页面加载
+    time.sleep(5)
 except TimeoutException as e:
     print("Failed to locate or click the inquiry and response tab:", e)
     driver.quit()
     exit()
 
 # 获取总页数
-total_pages = 632  # 根据你的截图中的页码数
+total_pages = 632
+
+# 根据你的截图中的页码数
 
 # 初始化用于存储所有PDF链接的列表
 all_pdf_links = []
@@ -67,7 +83,8 @@ for page in range(start_page, total_pages + 1):
 
         if page < total_pages:
             # 使用JavaScript进行分页跳转
-            driver.execute_script(f'document.querySelector("a[data-ver=\'{page + 1}\']").click()')
+            next_button = driver.find_element(By.ID, "dataList_container_next")
+            driver.execute_script("arguments[0].click();", next_button)
 
             # 等待页面加载
             time.sleep(5)
@@ -88,7 +105,7 @@ for page in range(start_page, total_pages + 1):
 driver.quit()
 
 # 创建文件夹用于保存下载的 PDF 文件
-os.makedirs('pdf_files', exist_ok=True)
+os.makedirs('pdf_files_SH', exist_ok=True)
 
 # 下载所有 PDF 文件
 for link in all_pdf_links:
@@ -96,8 +113,8 @@ for link in all_pdf_links:
     if not pdf_url.startswith('http'):
         pdf_url = 'https://www.sse.com.cn' + pdf_url
 
-    pdf_name = os.path.join('pdf_files', os.path.basename(pdf_url))
-    pdf_response = requests.get(pdf_url)
+    pdf_name = os.path.join('pdf_files_SH', os.path.basename(pdf_url))
+    pdf_response = requests.get(pdf_url, timeout=10)
     if pdf_response.status_code == 200:
         with open(pdf_name, 'wb') as pdf_file:
             pdf_file.write(pdf_response.content)

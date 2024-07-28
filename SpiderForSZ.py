@@ -80,10 +80,10 @@ for page in range(1, total_pages + 1):
 driver.quit()
 
 # 创建文件夹用于保存下载的 PDF 文件
-os.makedirs('pdf_files', exist_ok=True)
+os.makedirs('pdf_files_SZ', exist_ok=True)
 
 # 获取已下载的PDF文件列表
-downloaded_files = set(os.listdir('pdf_files'))
+downloaded_files = set(os.listdir('pdf_files_SZ'))
 
 # 下载所有 PDF 文件
 for link in all_pdf_links:
@@ -97,7 +97,9 @@ for link in all_pdf_links:
         print(f"Skipped: {pdf_name}")
         continue
 
-    pdf_path = os.path.join('pdf_files', pdf_name)
+    pdf_path = os.path.join('pdf_files_SZ', pdf_name)
+
+
 
     for attempt in range(5):  # 最多重试5次
         try:
